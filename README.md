@@ -1,0 +1,1 @@
+Integration of current document parsing and extraction modules like <a href="https://tika.apache.org">Apache Tika</a>

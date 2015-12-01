@@ -22,8 +22,8 @@ public class TikaPluginImpl extends BrokerConsumer implements TikaPlugin {
 	private Producer producer;
 
 	class Producer extends BrokerProducer {
-		public Producer(PropertyLoader config) throws UbicityBrokerException {
-			super.init(config.getString("plugin.tika.broker.user"), config.getString("plugin.tika.broker.pwd"));
+		public Producer() throws UbicityBrokerException {
+			super.init();
 		}
 	}
 
@@ -34,10 +34,10 @@ public class TikaPluginImpl extends BrokerConsumer implements TikaPlugin {
 		this.name = config.getString("plugin.tika.name");
 
 		try {
-			super.init(config.getString("plugin.tika.broker.user"), config.getString("plugin.tika.broker.pwd"));
+			super.init();
 
 			setConsumer(this, config.getString("plugin.tika.broker.consumer"));
-			producer = new Producer(config);
+			producer = new Producer();
 
 		} catch (Exception e) {
 			logger.error("During init caught exc.", e);
